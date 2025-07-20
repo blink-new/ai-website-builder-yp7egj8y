@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 280 100% 70%;
+  --accent: 320 100% 75%;
+  --background: 0 0% 98%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --ring: 280 100% 70%;
+  --radius: 0.75rem;
+  
+  /* Fun colorful variables */
+  --rainbow-1: 0 100% 70%;
+  --rainbow-2: 45 100% 70%;
+  --rainbow-3: 120 100% 70%;
+  --rainbow-4: 200 100% 70%;
+  --rainbow-5: 280 100% 70%;
+  --rainbow-6: 320 100% 70%;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 280 100% 70%;
+  --primary-foreground: 240 5.9% 10%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --accent: 320 100% 75%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --ring: 280 100% 70%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  color: hsl(var(--foreground));
+  background: hsl(var(--background));
+  font-family: Inter, sans-serif;
+}
+
+.font-space {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Colorful gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, 
+    hsl(var(--rainbow-1)) 0%, 
+    hsl(var(--rainbow-2)) 20%, 
+    hsl(var(--rainbow-3)) 40%, 
+    hsl(var(--rainbow-4)) 60%, 
+    hsl(var(--rainbow-5)) 80%, 
+    hsl(var(--rainbow-6)) 100%);
+  background-size: 300% 300%;
+  animation: rainbow-shift 8s ease infinite;
+}
+
+.gradient-bg-purple {
+  background: linear-gradient(135deg, 
+    hsl(280deg 100% 70%) 0%, 
+    hsl(320deg 100% 75%) 50%, 
+    hsl(260deg 100% 65%) 100%);
+}
+
+.gradient-bg-fun {
+  background: linear-gradient(45deg, 
+    #ff6b6b 0%, 
+    #4ecdc4 25%, 
+    #45b7d1 50%, 
+    #96ceb4 75%, 
+    #ffeaa7 100%);
+  background-size: 400% 400%;
+  animation: gradient-fun 6s ease infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, 
+    hsl(var(--rainbow-1)) 0%, 
+    hsl(var(--rainbow-5)) 50%, 
+    hsl(var(--rainbow-6)) 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.glass-effect {
+  backdrop-filter: blur(20px);
+  background: rgb(255 255 255 / 10%);
+  border: 1px solid rgb(255 255 255 / 20%);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
+}
+
+.glass-card {
+  backdrop-filter: blur(16px);
+  background: rgb(255 255 255 / 80%);
+  border: 1px solid rgb(255 255 255 / 30%);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
+}
+
+/* Fun animations */
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-wiggle {
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-rainbow {
+  animation: pulse-rainbow 2s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin 3s linear infinite;
+}
+
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgb(0 0 0 / 15%);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px hsl(var(--primary) / 50%);
+  transform: scale(1.05);
+}
+
+/* Keyframe animations */
+@keyframes fade-in {
+  from {
+    opacity: 0%;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0%;
+    transform: scale(0.3);
+  }
+
+  50% {
+    opacity: 100%;
+    transform: scale(1.05);
+  }
+
+  70% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    opacity: 100%;
+    transform: scale(1);
+  }
+}
+
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+
+  15% {
+    transform: rotateZ(-15deg);
+  }
+
+  20% {
+    transform: rotateZ(10deg);
+  }
+
+  25% {
+    transform: rotateZ(-10deg);
+  }
+
+  30% {
+    transform: rotateZ(6deg);
+  }
+
+  35% {
+    transform: rotateZ(-4deg);
+  }
+
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-rainbow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--rainbow-1) / 50%);
+  }
+
+  33% {
+    box-shadow: 0 0 20px hsl(var(--rainbow-3) / 50%);
+  }
+
+  66% {
+    box-shadow: 0 0 20px hsl(var(--rainbow-5) / 50%);
+  }
+}
+
+@keyframes rainbow-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes gradient-fun {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Fun button styles */
+.btn-fun {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+  background-size: 300% 300%;
+  animation: gradient-fun 3s ease infinite;
+  border: none;
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-fun:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 25px rgb(0 0 0 / 20%);
+}
+
+.btn-goofy {
+  background: linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef);
+  border: 3px solid #ff6b9d;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.btn-goofy:hover {
+  transform: rotate(-2deg) scale(1.1);
+  box-shadow: 0 0 30px #ff6b9d;
+}
+
+/* Colorful borders and effects */
+.border-rainbow {
+  border: 3px solid;
+  border-image: linear-gradient(45deg, 
+    hsl(var(--rainbow-1)), 
+    hsl(var(--rainbow-3)), 
+    hsl(var(--rainbow-5))) 1;
+}
+
+.text-rainbow {
+  background: linear-gradient(45deg, 
+    hsl(var(--rainbow-1)), 
+    hsl(var(--rainbow-2)), 
+    hsl(var(--rainbow-3)), 
+    hsl(var(--rainbow-4)), 
+    hsl(var(--rainbow-5)), 
+    hsl(var(--rainbow-6)));
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 300% 300%;
+  animation: rainbow-shift 4s ease infinite;
+}
+
+/* Goofy shapes */
+.blob-shape {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  animation: blob-morph 8s ease-in-out infinite;
+}
+
+@keyframes blob-morph {
+  0%, 100% {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  }
+
+  25% {
+    border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+  }
+
+  50% {
+    border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+  }
+
+  75% {
+    border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+  }
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Fun scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--accent)));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, hsl(var(--accent)), hsl(var(--primary)));
+}
